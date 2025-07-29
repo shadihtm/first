@@ -1,0 +1,42 @@
+body{
+ font-family:'vazir' Arial, sans-serif;
+ direction: rtl;
+ text-align: center;
+ margin: 0px;
+ padding: 20px;
+}
+
+h1{
+    color: #333;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+
+
+.product:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.product button{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product button :hover{
+    background-color: #0056b3;
+}
