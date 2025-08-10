@@ -1,6 +1,6 @@
 // آرایه محصولات با عکس
 const products = [
-  { name: "لپ تاپ", price: 2000, image:"image/laptop.jpg" },
+  { name: "لپ تاپ", price: 2000, image: "image/laptop.jpg" },
   { name: "موبایل", price: 1000, image: "image/mobile.jpg" },
   { name: "هدفون", price: 500, image: "image/headphone.jfif" },
   { name: "تبلت", price: 800, image: "image/tablet.jpg" }
@@ -23,13 +23,20 @@ function updateCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = '<p class="empty-cart">سبد خرید خالی است</p>';
   } else {
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
       const div = document.createElement("div");
       div.className = "cart-item";
       div.innerHTML = `
         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-        ${item.name} - ${item.price} تومان
+        <span>${item.name} - ${item.price} تومان</span>
+        <button class="remove-btn" data-index="${index}">حذف</button>
       `;
+      // اضافه کردن رویداد کلیک به دکمه حذف
+      const removeButton = div.querySelector(".remove-btn");
+      removeButton.addEventListener("click", () => {
+        cart.splice(index, 1); // حذف آیتم از آرایه
+        updateCart(); // آپدیت سبد خرید
+      });
       cartItems.appendChild(div);
     });
   }
